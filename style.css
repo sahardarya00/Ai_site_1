@@ -1,6 +1,6 @@
 * {
   margin: 0;
-  padding: 3px;
+  padding: 0;
   box-sizing: border-box;
   font-family: "Segoe UI", sans-serif;
 }
@@ -13,7 +13,7 @@ body {
   background-size: cover;
 }
 
-/* NAV */
+/* NAVIGATION */
 .header {
   padding: 20px 60px;
 }
@@ -22,10 +22,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.nav:hover{
-  color: #2563eb;
+  flex-wrap: wrap;
 }
 
 .logo {
@@ -36,54 +33,58 @@ body {
 
 .nav-links {
   display: flex;
-  gap: 25px;
+  gap: 20px;
   list-style: none;
+  flex-wrap: wrap;
 }
 
 .nav-links a {
   text-decoration: none;
-  color: #cbd5e1;
-  font-size: 14px;
-}
-
-ul.nav-links :hover {
-  color: #4fd1ff;
-  background-color: #2563eb;
-}
-
-.nav-links a {
   background: #0f172a;
   padding: 6px 14px;
   border-radius: 20px;
   color: #4fd1ff;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  background: #2563eb;
+  color: #fff;
+}
+
+.nav-actions {
+  display: flex;
+  gap: 10px;
 }
 
 .nav-actions button {
-  margin-left: 10px;
   background: transparent;
   border: 1px solid #334155;
   color: #fff;
   padding: 6px 14px;
   border-radius: 20px;
   cursor: pointer;
+  transition: 0.3s;
 }
 
-/* HERO */
+.nav-actions button:hover {
+  border-color: #38bdf8;
+  color: #38bdf8;
+}
+
+/* HERO SECTION */
 .hero {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   padding: 80px 60px;
-}
-
-@keyframes glowPulse {
-  0%   { transform: translate(-50%, -50%) scale(0.9); opacity: 0.6; }
-  50%  { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
-  100% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.6; }
+  flex-wrap: wrap;
 }
 
 .hero-content {
   max-width: 520px;
+  flex: 1 1 300px;
 }
 
 .tag {
@@ -110,6 +111,7 @@ ul.nav-links :hover {
 .hero-buttons {
   display: flex;
   gap: 15px;
+  flex-wrap: wrap;
 }
 
 .primary-btn {
@@ -119,6 +121,8 @@ ul.nav-links :hover {
   border-radius: 30px;
   color: #fff;
   cursor: pointer;
+  flex: 1 1 auto;
+  min-width: 150px;
 }
 
 .secondary-btn {
@@ -128,26 +132,18 @@ ul.nav-links :hover {
   border-radius: 30px;
   color: #fff;
   cursor: pointer;
+  flex: 1 1 auto;
+  min-width: 150px;
 }
 
-/* IMAGE */
 .hero-image img {
   width: 480px;
+  max-width: 100%;
+  height: auto;
   filter: drop-shadow(0 0 40px #38bdf8);
-  -webkit-filter: drop-shadow(0 0 40px #38bdf8);
 }
 
-/* Glow background effect */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(circle at 70% 70%, rgba(56,189,248,0.15), transparent 40%),
-    radial-gradient(circle at 30% 70%, rgba(37,99,235,0.12), transparent 45%);
-  z-index: -1;
-}
-
+/* HERO BOTTOM */
 .hero-bottom {
   width: 100%;
   padding: 60px 80px;
@@ -158,11 +154,12 @@ body::before {
   justify-content: space-between;
   align-items: center;
   gap: 40px;
+  flex-wrap: wrap;
 }
 
-/* Text */
 .hero-text {
   max-width: 420px;
+  flex: 1 1 250px;
 }
 
 .hero-desc {
@@ -172,7 +169,6 @@ body::before {
   margin-bottom: 25px;
 }
 
-/* Button */
 .btn-secondary {
   display: inline-flex;
   align-items: center;
@@ -194,21 +190,18 @@ body::before {
   background: rgba(255,255,255,0.15);
 }
 
-/* Card */
 .hero-card {
   width: 200px;
   height: 260px;
   border-radius: 18px;
   overflow: hidden;
-
   background: rgba(255,255,255,0.06);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-
   border: 1px solid rgba(255,255,255,0.15);
-  box-shadow:
-    0 20px 50px rgba(0,0,0,0.6),
-    inset 0 0 20px rgba(255,255,255,0.05);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6), inset 0 0 20px rgba(255,255,255,0.05);
+  flex: 1 1 200px;
+  max-width: 100%;
 }
 
 .hero-card img {
@@ -217,36 +210,32 @@ body::before {
   object-fit: cover;
 }
 
+/* Glow background effect */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 70% 70%, rgba(56,189,248,0.15), transparent 40%),
+    radial-gradient(circle at 30% 70%, rgba(37,99,235,0.12), transparent 45%);
+  z-index: -1;
+}
+
 /* ==========================
-   Responsive CSS
+   RESPONSIVE
 ========================== */
 @media (max-width: 1024px) {
   .hero {
-    flex-direction: column;
     padding: 60px 40px;
   }
 
-  .hero-image img {
-    width: 80%;
-    max-width: 400px;
-  }
-
-  .hero-bottom-content {
-    flex-direction: column;
-    gap: 30px;
-  }
-
-  .hero-card {
-    width: 250px;
-    height: 320px;
+  .hero-bottom {
+    padding: 40px 40px;
   }
 }
 
 @media (max-width: 768px) {
-  .header {
-    padding: 15px 20px;
-  }
-
+  /* NAV */
   .nav {
     flex-direction: column;
     align-items: flex-start;
@@ -265,13 +254,15 @@ body::before {
     justify-content: space-between;
   }
 
-  .hero h1 {
-    font-size: 32px;
+  /* HERO */
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 40px;
   }
 
-  .hero p,
-  .hero-desc {
-    font-size: 14px;
+  .hero-content {
+    max-width: 100%;
   }
 
   .hero-buttons {
@@ -282,7 +273,6 @@ body::before {
   .primary-btn,
   .secondary-btn {
     width: 100%;
-    text-align: center;
   }
 
   .hero-image img {
@@ -290,28 +280,28 @@ body::before {
     max-width: 350px;
   }
 
-  .hero-bottom {
-    padding: 40px 20px;
+  /* HERO BOTTOM */
+  .hero-bottom-content {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 30px;
   }
 
   .hero-card {
-    width: 90%;
+    width: 80%;
     height: auto;
-  }
-
-  .hero-bottom-content {
-    align-items: center;
-    text-align: center;
   }
 }
 
 @media (max-width: 480px) {
   .hero h1 {
-    font-size: 24px;
+    font-size: 28px;
   }
 
-  .hero-buttons {
-    gap: 10px;
+  .hero p,
+  .hero-desc {
+    font-size: 14px;
   }
 
   .nav-links a {
