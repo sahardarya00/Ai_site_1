@@ -1,6 +1,4 @@
-/* ==========================
-   Base CSS
-========================== */
+
 * {
   margin: 0;
   padding: 0;
@@ -140,7 +138,7 @@ body {
 }
 
 .hero-image img {
-  width: 480px;
+  width: 252px;
   max-width: 100%;
   height: auto;
   filter: drop-shadow(0 0 40px #38bdf8);
@@ -224,8 +222,7 @@ body::before {
   z-index: -1;
 }
 
-/* ==========================
-   RESPONSIVE
+   /*RESPONSIVE
 ========================== */
 @media (max-width: 1024px) {
   .hero {
@@ -313,4 +310,5 @@ body::before {
     font-size: 18px;
   }
 }
+
 
